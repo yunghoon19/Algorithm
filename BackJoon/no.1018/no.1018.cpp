@@ -8,7 +8,33 @@ using namespace std;
 
 char chess_Board[250];
 
-void Board_Check(int _X, int _Y)
+// 검은색이 먼저 나올 때 체스판 모양
+char blackFirst[64]
+{
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+};
+ 
+// 흰색이 먼저 나올 때 체스판 모양
+char whiteFirst[64]
+{
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+    {"WBWBWBWB"},
+    {"BWBWBWBW"},
+};
+
+int Board_Check(int _X, int _Y)
 {
     int cnt = 0;
 
@@ -17,6 +43,9 @@ void Board_Check(int _X, int _Y)
         for (int j = 0; j < 8; j++)
         {
             if (chess_Board[i])
+            {
+                
+            }
         }
     }
 }
@@ -24,6 +53,7 @@ void Board_Check(int _X, int _Y)
 int main(void)
 {
     int N, M;
+    int result;
 
     scanf("%d %d", &N, &M);
 
@@ -37,7 +67,6 @@ int main(void)
     {
         for (j = 0; j < M - 7; j++)
         {
-
         }
     }
 
