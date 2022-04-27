@@ -1,5 +1,5 @@
 /*
-    백준 알고리즘 문제 11651번 소스 코드
+    백준 알고리즘 문제 11650번 소스 코드
 */
 
 #include <iostream>
@@ -16,13 +16,13 @@ struct Location
 
 bool Compare(Location& _l1, Location& _l2)
 {
-    if (_l1.x == _l2.x)
+    if (_l1.y == _l2.y)
     {
-        return _l1.y < _l2.y;
+        return _l1.x < _l2.x;
     }
     else
     {
-        return _l1.x < _l2.x;
+        return _l1.y < _l2.y;
     }
 }
 
