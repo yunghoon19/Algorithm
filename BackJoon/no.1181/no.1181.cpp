@@ -4,56 +4,43 @@
 
 #include <iostream>
 #include <algorithm>
-#include <string.h>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-struct CString
+bool compare (string _S1, string _S2) 
 {
-    char word[51];
-    int length;
-};
-
-bool Compare(CString& _S1, CString& _S2)
-{
-    if (_S1.length == _S2.length)
+    if (_S1.size() == _S2.size())
     {
-        return _S1.word < _S2.word;
-    }
-    
-    return _S1.length < _S2.length;
+        return _S1 < _S2;  
+    } 
+    else
+    {
+        return _S1.size() < _S2.size();
+    } 
 }
 
-int main(void)
+int main () 
 {
     int N;
-    CString* stringArr;
+    string temp;
+    vector<string> stringArr;
+    vector<string>::iterator iter;
 
     scanf("%d", &N);
 
-    stringArr = new CString[N];
-
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++) 
     {
-        scanf("%s", &stringArr[i].word);
-        stringArr[i].length = strlen(stringArr[i].word);
+        cin >> temp;
+        stringArr.push_back(temp);
     }
+    
+    sort(stringArr.begin(), stringArr.end(), compare);
+    stringArr.erase(unique(stringArr.begin(), stringArr.end()), stringArr.end()); // 중복제거
 
-    sort(stringArr, stringArr + N, Compare);
-
-    for (int i = 0; i < N; i++)
+    for (iter = stringArr.begin(); iter != stringArr.end(); iter++)
     {
-        for (int j = i + 1; j < n; j++)
-        {
-            
-        }
+        cout << *iter << endl;
     }
-
-    printf("=================\n");
-    for (int i = 0; i < N; i++)
-    {
-        printf("%s\n", stringArr[i].word);
-    }
-
-    return 0;
 }
