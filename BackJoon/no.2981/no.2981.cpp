@@ -32,11 +32,11 @@ int main(void)
     {
         scanf("%d", &iArr[i]);
     }
-    sort(iArr.begin(), iArr.end());
+    sort(iArr.begin(), iArr.end());     // 음수 방지를 위해 정렬
 
     result_GCD = iArr[1] - iArr[0];
 
-    for (int i = 1; i < N - 1; i++)
+    for (int i = 1; i < N - 1; i++)     // iArr[n + 1] - iArr[n]의 최대공약수 계산
     {
         result_GCD = GCD(result_GCD, iArr[i + 1] - iArr[i]);
     }
