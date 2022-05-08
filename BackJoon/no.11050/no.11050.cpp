@@ -17,7 +17,6 @@ int Fac(int _num)
     {
         return Fac(_num - 1) * _num;
     }
- 
 }
 
 int main(void)

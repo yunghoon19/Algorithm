@@ -8,13 +8,16 @@ using namespace std;
 
 #define MAX 1001
 
-int DP[MAX][MAX];
+//점화식 DP[N][K] =DP[N-1][K-1] + DP[N-1][K]
 
-void binomial()
+int main(void)
 {
-    DP[0][0] = 1;
+    int N, K;
+    int DP[MAX][MAX];
+    
+    cin >> N >> K;
 
-    int printB = MAX;
+    DP[0][0] = 1;
 
     for (int i = 1; i < MAX; i++)
     {
@@ -27,14 +30,7 @@ void binomial()
             }
         }
     }
-}
 
-int main(void)
-{
-    int N, K;
-    cin >> N >> K;
-
-    binomial();
     cout << DP[N][K];
 
     return 0;
