@@ -6,6 +6,8 @@
 
 using namespace std;
 
+//점화식 DP[N][K] = DP[N-1][K-1] + DP[N-1][K]
+
 #define MAX 31
 
 int main(void)
@@ -22,7 +24,7 @@ int main(void)
     {
         for (int j = 0; j <= i; j++)
         {
-            if (j == 0 || i == j) { DP[i][j] = 1; }
+            if (j == 0 || i == j) { DP[i][j] = 1; }     // 파스칼의 법칙에 의해 1
             else
             {
                 DP[i][j] = (DP[i - 1][j - 1] + DP[i - 1][j]);
