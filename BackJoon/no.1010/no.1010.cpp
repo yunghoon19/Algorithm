@@ -1,21 +1,20 @@
 /*
-    백준 알고리즘 문제 11051번 소스 코드
+    백준 알고리즘 문제 1010번 소스 코드
 */
 
 #include <iostream>
 
 using namespace std;
 
-#define MAX 1001
-
-//점화식 DP[N][K] = DP[N-1][K-1] + DP[N-1][K]
+#define MAX 31
 
 int main(void)
 {
-    int N, K;
+    int T;
+    int N, M;
     int DP[MAX][MAX];
-    
-    cin >> N >> K;
+
+    cin >> T;
 
     DP[0][0] = 1;
 
@@ -26,12 +25,16 @@ int main(void)
             if (j == 0 || i == j) { DP[i][j] = 1; }
             else
             {
-                DP[i][j] = (DP[i - 1][j - 1] + DP[i - 1][j]) % 10007;
+                DP[i][j] = (DP[i - 1][j - 1] + DP[i - 1][j]);
             }
         }
     }
 
-    cout << DP[N][K];
+    while (T--)
+    {
+        cin >> N >> M;
+        cout << DP[M][N] << endl;
+    }
 
     return 0;
 }
