@@ -17,13 +17,13 @@ void BT(int _depth, const int& _N, const int& _M)
     {
         for (int i = 0; i < _M; i++)
         {
-            printf("%d ", resultArr[i]);
+            printf("%d ", resultArr[i] + 1);
         }
         printf("\n");
         return;
     }
 
-    for (int i = 1; i <= _N; i++)
+    for (int i = 0; i < _N; i++)
     {
         if (!chackVis[i])
         {
@@ -31,6 +31,10 @@ void BT(int _depth, const int& _N, const int& _M)
             resultArr[_depth] = i;
             BT(_depth + 1, _N, _M);
             chackVis[i] = false;
+        }
+        else
+        {
+            cout << "i " << i;
         }
     }
 }
